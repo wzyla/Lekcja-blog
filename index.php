@@ -40,8 +40,31 @@ class blog
   }
 }
 
-$blogTomka= new blog('localhost','root','root','Blog1'); //Jeśli mamy konstruktora w klasie to podajemy parametry odrazu przy tworzeniu obiektu
+$blogTomka= new blog('localhost','root','root','Blog1');
+
+$action=$_GET['action'];
+$id=$_GET['id'];
+switch ($action) {
+  case 'usun':
+  $blogTomka->usun($id);
+    break;
+}
+
+//$blogTomka= new blog('localhost','root','root','Blog1'); //Jeśli mamy konstruktora w klasie to podajemy parametry odrazu przy tworzeniu obiektu
 //$blogTomka->dodaj('2017-01-23','Witamy na Blogu','czytaj',5,'Klasy part 2');
-$blogTomka->edit(61,'2018-05-18','cześć','czytaj więcej','Edytowane');
+//$blogTomka->edit(61,'2018-05-18','cześć','czytaj więcej','Edytowane');
 
 ?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="index.php?action=usun&id=61">usun</a>
+</body>
+</html>
